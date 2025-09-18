@@ -10,12 +10,14 @@ app.use(express.json())
 let movies = [
    {
   "id": 1,
+  "poster": "https://m.media-amazon.com/images/I/912AErFSBHL._UF894,1000_QL80_.jpg",
   "title": "Inception",
   "director": "Christopher Nolan",
   "year": 2010
 },
 {
   "id": 2,
+  "poster": "https://m.media-amazon.com/images/M/MV5BOGMwZGJiM2EtMzEwZC00YTYzLWIxNzYtMmJmZWNlZjgxZTMwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
   "title": "Superman",
   "director": "James Gunn",
   "year": 2025

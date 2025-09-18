@@ -15,6 +15,7 @@ import MovieCard from "@/components/ui/movie-card"
 
 type Movie = {
   id: number,
+  poster: string,
   title: string,
   director: string,
   year: number
@@ -27,6 +28,7 @@ interface NewMovie {
 function App() {
   const [movies, setMovies] = useState<Movie[]>([])
   const [title, setTitle] = useState("")
+  const [poster, setPoster] = useState("")
   const [director, setDirector] = useState("")
   const [year, setYear] = useState("")
   const API = "http://localhost:3001"
@@ -55,6 +57,7 @@ function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       setTitle("");
       setDirector("");
       setYear("");
+      setPoster("")
     });
 }
 
@@ -90,11 +93,17 @@ const handleDelete: HandleDelete = (id) => {
       onChange={(e) => setYear(e.target.value)}
       placeholder="Release Year"
       />
+      <Input
+      className="field-sizing-fixed w-50"
+      value={poster}
+      onChange={(e) => setPoster(e.target.value)}
+      placeholder="Poster URL"
+      />
       <Button className="field-sizing-fixed w-30" type="submit">Add</Button>
     </form>
     </div>
 
-    <div className="flex gap-2 p-8 text-center">
+    <div className="flex gap-4 p-8 text-center">
      {
         movies.map(m => (
           <MovieCard
@@ -103,6 +112,7 @@ const handleDelete: HandleDelete = (id) => {
           director={m.director}
           year={m.year}
           id={m.id}
+          poster={m.poster}
           
           />
         ))
