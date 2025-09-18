@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "puppeteer": "^24.22.0"
+  },
+  "scripts": { "scrape:dev": "node scrape-dev.js" }
+}

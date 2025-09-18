@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label"
 
 interface MovieCardProps {
 id: number
+poster: string
 title: string
 director: string
 year: number | string
@@ -25,12 +26,13 @@ interface HandleDelete {
 
 type Movie = {
   id: number,
+  poster: string,
   title: string,
   director: string,
   year: number
 }
 
-export default function MovieCard({id, title, director, year}: MovieCardProps) {
+export default function MovieCard({id, title, director, year, poster}: MovieCardProps) {
 
   const [movies, setMovies] = useState<Movie[]>([])
     const API = "http://localhost:3001"
@@ -45,6 +47,9 @@ return(
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       <CardContent className="gap-y-4 gap-x-5">
+          <div>
+             <img src={poster} className="object-contain aspect-9/16"></img>
+          </div>
         <h2>
             {director} - {year}
         </h2>
